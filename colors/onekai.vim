@@ -6,7 +6,7 @@ if exists('syntax_on')
 endif
 
 set t_Co=256
-let g:colors_name = 'blep'
+let g:colors_name = 'onekai'
 
 let s:AnsiColor = ['00', '5f', '87', 'af', 'd7', 'ff']
 let s:AnsiGrey = ['00',
@@ -45,34 +45,34 @@ function s:Highlight(group, ...)
 	execute join(cmd, ' ')
 endfunction
 
-let s:BlepWhite   = -21
-let s:BlepGrey    = -16
-let s:BlepBlue    = 335
-let s:BlepGreen   = 353
-let s:BlepCyan    = 255
-let s:BlepRed     = 522
-let s:BlepYellow  = 542
-let s:BlepPink    = 535
-let s:BlepGreyD   = -6
-let s:BlepGreyDD  = -3
-let s:BlepGreenD  = 012
-let s:BlepRedD    = 210
+let s:White   = -21
+let s:Grey    = -16
+let s:Blue    = 335
+let s:Green   = 353
+let s:Cyan    = 255
+let s:Red     = 522
+let s:Yellow  = 542
+let s:Pink    = 535
+let s:GreyD   = -6
+let s:GreyDD  = -3
+let s:GreenD  = 012
+let s:RedD    = 210
 
-call s:Highlight('Normal', s:BlepWhite, v:null, v:null)
+call s:Highlight('Normal', s:White, v:null, v:null)
 
-call s:Highlight('Pmenu', v:null, s:BlepGreyD, v:null)
+call s:Highlight('Pmenu', v:null, s:GreyD, v:null)
 highlight! link ColorColumn  Pmenu
 highlight! link CursorLine   Pmenu
 " highlight! link CursorColumn Pmenu
 
-call s:Highlight('CursorColumn ', v:null, s:BlepGreyDD, v:null)
+call s:Highlight('CursorColumn ', v:null, s:GreyDD, v:null)
 
-call s:Highlight('PmenuSel', s:BlepYellow, s:BlepGreyD, 'bold')
+call s:Highlight('PmenuSel', s:Yellow, s:GreyD, 'bold')
 highlight! link Highlight       PmenuSel
 highlight! link CocSelectedText PmenuSel
 highlight! link CocMenuSel      PmenuSel
 
-call s:Highlight('Keyword', s:BlepRed, v:null, v:null)
+call s:Highlight('Keyword', s:Red, v:null, v:null)
 highlight! link Conditional Keyword
 highlight! link Define      Keyword
 " highlight! link PreCondit   Keyword
@@ -85,7 +85,7 @@ highlight! link Tag         Keyword
 " highlight! link Repeat      Keyword
 " highlight! link Debug       Keyword
 
-call s:Highlight('Type', s:BlepCyan, v:null, v:null)
+call s:Highlight('Type', s:Cyan, v:null, v:null)
 highlight! link Constant     Type
 highlight! link Boolean      Type
 highlight! link Number       Type
@@ -98,46 +98,46 @@ highlight! link Structure    Type
 highlight! link Typedef      Type
 " highlight! link Exception    Type
 
-call s:Highlight('StatusLine',   s:BlepWhite, s:BlepGreyD, 'bold')
-call s:Highlight('StatusLineNC', s:BlepWhite, s:BlepGreyD, v:null)
+call s:Highlight('StatusLine',   s:White, s:GreyD, 'bold')
+call s:Highlight('StatusLineNC', s:White, s:GreyD, v:null)
 
-call s:Highlight('DiffText',   s:BlepWhite, s:BlepGreenD, 'bold')
-call s:Highlight('DiffAdd',    s:BlepWhite, s:BlepRedD,   'bold')
+call s:Highlight('DiffText', s:White, s:GreenD, 'bold')
+call s:Highlight('DiffAdd',  s:White, s:RedD,   'bold')
 highlight! link diffAdded DiffAdd
 call s:Highlight('DiffDelete', 200,         v:null, v:null)
 highlight! link diffRemoved DiffDelete
 
-call s:Highlight('DiffChange',     v:null,      v:null,      v:null)
-call s:Highlight('Underlined',     v:null,      v:null,      'underline')
-call s:Highlight('Visual',         v:null,      s:BlepGreyD, v:null)
-call s:Highlight('Cursor',         v:null,      s:BlepWhite, v:null)
+call s:Highlight('DiffChange', v:null, v:null,  v:null)
+call s:Highlight('Underlined', v:null, v:null,  'underline')
+call s:Highlight('Visual',     v:null, s:GreyD, v:null)
+call s:Highlight('Cursor',     v:null, s:White, v:null)
 
-call s:Highlight('Search',         s:BlepWhite, 012,         v:null)
-call s:Highlight('IncSearch',      s:BlepGreen, v:null,      'inverse')
+call s:Highlight('Search',    s:White, 012,    v:null)
+call s:Highlight('IncSearch', s:Green, v:null, 'inverse')
 
-call s:Highlight('Error', s:BlepRed, v:null, 'undercurl')
+call s:Highlight('Error', s:Red, v:null, 'undercurl')
 highlight! link CocErrorSign        Error
 
-call s:Highlight('ErrorMsg', s:BlepRed, v:null, v:null)
+call s:Highlight('ErrorMsg', s:Red, v:null, v:null)
 highlight! link CocErrorFloat       ErrorMsg
 highlight! link CocDiagnosticsError ErrorMsg
 
-call s:Highlight('Warning', s:BlepYellow, v:null, 'undercurl')
+call s:Highlight('Warning', s:Yellow, v:null, 'undercurl')
 highlight! link CocWarningSign        Warning
 
-call s:Highlight('WarningMsg', s:BlepYellow, v:null, v:null)
+call s:Highlight('WarningMsg', s:Yellow, v:null, v:null)
 highlight! link CocWarningFloat       WarningMsg
 highlight! link CocDiagnosticsWarning WarningMsg
 
-call s:Highlight('Special',        s:BlepWhite, v:null,      v:null)
+call s:Highlight('Special', s:White, v:null, v:null)
 " highlight! link Delimiter Special
 
-call s:Highlight('Title',          s:BlepWhite, v:null,      'bold')
-call s:Highlight('LineNr',         s:BlepGrey,  v:null,      v:null)
-call s:Highlight('CursorLineNr',   s:BlepWhite, s:BlepGreyD, v:null)
-call s:Highlight('SignColumn',     v:null,      s:BlepGreyD, v:null)
+call s:Highlight('Title',        s:White, v:null,  'bold')
+call s:Highlight('LineNr',       s:Grey,  v:null,  v:null)
+call s:Highlight('CursorLineNr', s:White, s:GreyD, v:null)
+call s:Highlight('SignColumn',   v:null,  s:GreyD, v:null)
 
-call s:Highlight('Comment',        s:BlepGrey,  v:null,      v:null)
+call s:Highlight('Comment', s:Grey, v:null, v:null)
 " highlight! link Ignore         Comment
 highlight! link Conceal        Comment
 highlight! link NonText        Comment
@@ -145,17 +145,17 @@ highlight! link SpecialComment Comment
 highlight! link SpecialKey     Comment
 highlight! link CocCodeLens    Comment
 
-call s:Highlight('VertSplit',    s:BlepGrey,   s:BlepGreyD, v:null)
-call s:Highlight('Folded',       s:BlepGrey,   s:BlepGreyD, v:null)
+call s:Highlight('VertSplit', s:Grey, s:GreyD, v:null)
+call s:Highlight('Folded',    s:Grey, s:GreyD, v:null)
 
-call s:Highlight('IndentBlanklineChar', s:BlepGreyD, v:null, v:null)
+call s:Highlight('IndentBlanklineChar', s:GreyD, v:null, v:null)
 
-call s:Highlight('Identifier',   145,          v:null,      v:null)
+call s:Highlight('Identifier', 145, v:null, v:null)
 
-call s:Highlight('Function',     s:BlepYellow, v:null,      v:null)
-call s:Highlight('Label',        s:BlepYellow, v:null,      v:null)
-call s:Highlight('String',       s:BlepYellow, v:null,      v:null)
+call s:Highlight('Function', s:Yellow, v:null, v:null)
+call s:Highlight('Label',    s:Yellow, v:null, v:null)
+call s:Highlight('String',   s:Yellow, v:null, v:null)
 
-call s:Highlight('Todo',         s:BlepRed,    v:null,      'inverse')
-call s:Highlight('MatchParen',   s:BlepRed,    v:null,      'inverse')
+call s:Highlight('Todo',       s:Red, v:null, 'inverse')
+call s:Highlight('MatchParen', s:Red, v:null, 'inverse')
 
